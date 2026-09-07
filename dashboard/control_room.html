@@ -1,0 +1,13 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><title>AeroPure Plant Twin</title>
+<style>body{font-family:Segoe UI,system-ui,sans-serif;margin:0;background:#f1f5f9;color:#0f172a}header{background:#0f172a;color:#fff;padding:18px 28px}header small{color:#94a3b8}main{padding:20px 28px;max-width:1100px;margin:auto}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}.card{background:#fff;border-radius:12px;padding:16px 18px}.card h3{margin:0 0 6px;font-size:13px;color:#475569;text-transform:uppercase}.card .v{font-size:26px;font-weight:700}pre{background:#0f172a;color:#e2e8f0;padding:14px;border-radius:10px}</style></head>
+<body><header><div>AeroPure Plant Twin — Control Room</div><small>CPCB telemetry replay · resource recovery</small></header>
+<main><div class="grid" id="kpis"></div><h2>Three cash mechanisms</h2><div class="grid" id="cash"></div>
+<pre id="raw">See data/sample_week_250kVA.json</pre></main>
+<script>
+const s={"genset":"Ashok Leyland-class 250 kVA","hours":168,"kwh_elec":21469.4,"capture_pct":96.75,"carbon_black_kg":3.888,"cpcb_compliance_frac":0.9881,"inr_net":149534,"payback_days_at_this_duty":15.9,"three_mechanisms":{"material_sales":331,"fuel_and_thermal_savings":107279,"revenue_protection":41925}};
+function paint(s){const k=[["Genset",s.genset],["Hours",s.hours],["kWh elec",s.kwh_elec],["Capture %",s.capture_pct],["Carbon kg",s.carbon_black_kg],["CPCB",((s.cpcb_compliance_frac||0)*100).toFixed(1)+"%"],["Net INR",s.inr_net],["Payback days",s.payback_days_at_this_duty]];
+document.getElementById("kpis").innerHTML=k.map(([h,v])=>`<div class="card"><h3>${h}</h3><div class="v">${v??"—"}</div></div>`).join("");
+const m=s.three_mechanisms||{};
+document.getElementById("cash").innerHTML=[["1. Material sales",m.material_sales],["2. Fuel + thermal",m.fuel_and_thermal_savings],["3. Fine shield",m.revenue_protection]].map(([h,v])=>`<div class="card"><h3>${h}</h3><div class="v">₹ ${v??0}</div></div>`).join("");
+document.getElementById("raw").textContent=JSON.stringify(s,null,2);}paint(s);
+</script></body></html>
