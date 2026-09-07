@@ -1,0 +1,26 @@
+{
+  "genset": "Ashok Leyland-class 250 kVA",
+  "rated_kw": 200.0,
+  "hours": 168.0,
+  "kwh_elec": 21469.4,
+  "kwh_th_recovered": 13124.1,
+  "diesel_litres": 5628.1,
+  "pm_in_g": 5582.1,
+  "pm_out_g": 181.5,
+  "capture_pct": 96.75,
+  "carbon_black_kg": 3.888,
+  "service_swaps": 0,
+  "cpcb_compliance_frac": 0.9881,
+  "inr_heat": 102368.0,
+  "inr_carbon": 331.0,
+  "inr_fuel_saved": 4911.0,
+  "inr_fine_shield": 41925.0,
+  "inr_cartridge_opex": 0.0,
+  "inr_net": 149534.0,
+  "payback_days_at_this_duty": 15.9,
+  "three_mechanisms": {
+    "material_sales": 331.0,
+    "fuel_and_thermal_savings": 107279.0,
+    "revenue_protection": 41925.0
+  }
+}
